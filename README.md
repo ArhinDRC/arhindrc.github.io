@@ -1,6 +1,11 @@
 # 🌙 ArhinD RC
+
 <p align="center">
-  A personal link page with my projects, social media profiles, and music playlist.
+  <img src="background.png" alt="Anime Background" width="720">
+</p>
+
+<p align="center">
+  <b>A personal link page with my projects, social media profiles, and music playlist.</b>
 </p>
 
 <p align="center">
