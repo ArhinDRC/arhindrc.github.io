@@ -11,46 +11,72 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
       font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #2b2b2b, #080808);
       color: white;
+      background-image:
+        linear-gradient(
+          rgba(0, 0, 0, 0.45),
+          rgba(0, 0, 0, 0.65)
+        ),
+        url("https://i.ibb.co/KtysBpC/317e34fa-0f3f-42fb-8847-210bd6213d10.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
     }
 
     .page {
       width: 100%;
-      max-width: 420px;
+      max-width: 430px;
+      margin-left: 8%;
       padding: 32px 20px;
       text-align: center;
     }
 
+    .card {
+      padding: 28px;
+      border-radius: 26px;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(12px);
+    }
+
     .avatar {
-      width: 120px;
-      height: 120px;
+      width: 115px;
+      height: 115px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid rgba(255, 255, 255, 0.25);
+      border: 3px solid rgba(255, 255, 255, 0.35);
       margin-bottom: 16px;
+      box-shadow: 0 0 35px rgba(255, 255, 255, 0.15);
     }
 
     h1 {
       margin: 0 0 8px;
-      font-size: 32px;
+      font-size: 34px;
+      letter-spacing: 1px;
     }
 
     .subtitle {
-      margin: 0 0 32px;
-      color: #bdbdbd;
+      margin: 0 0 30px;
+      color: #d6d6d6;
       font-size: 15px;
+      line-height: 1.5;
     }
 
     h2 {
-      margin: 28px 0 14px;
+      margin: 26px 0 14px;
       font-size: 20px;
     }
 
@@ -62,41 +88,77 @@
     .links a {
       display: block;
       padding: 14px 18px;
-      border-radius: 14px;
+      border-radius: 15px;
       color: white;
       text-decoration: none;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      transition: 0.2s;
+      font-size: 16px;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      transition: 0.25s ease;
     }
 
     .links a:hover {
-      transform: translateY(-2px);
-      background: rgba(255, 255, 255, 0.16);
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.20);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    @media (max-width: 700px) {
+      body {
+        justify-content: center;
+        background-position: center;
+      }
+
+      .page {
+        margin-left: 0;
+        padding: 24px 16px;
+      }
+
+      .card {
+        padding: 24px 18px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
     }
   </style>
 </head>
 
 <body>
   <main class="page">
-    <img class="avatar" src="https://github.com/ArhinDRC.png" alt="ArhinD RC">
+    <section class="card">
+      <img class="avatar" src="https://github.com/ArhinDRC.png" alt="ArhinD RC">
 
-    <h1>ArhinD RC</h1>
-    <p class="subtitle">Мои проекты, соцсети и полезные ссылки</p>
+      <h1>ArhinD RC</h1>
+      <p class="subtitle">Мои проекты, соцсети и полезные ссылки</p>
 
-    <h2>Связь</h2>
-    <div class="links">
-      <a href="https://t.me/your_username" target="_blank">Telegram</a>
-      <a href="https://www.tiktok.com/@your_username" target="_blank">TikTok</a>
-      <a href="mailto:arhindrc@gmail.com">Email</a>
-    </div>
+      <h2>Связь</h2>
+      <div class="links">
+        <a href="https://t.me/Da8Rc9l" target="_blank" rel="noopener noreferrer">
+          Telegram
+        </a>
 
-    <h2>Проекты</h2>
-    <div class="links">
-      <a href="https://github.com/ArhinDRC" target="_blank">GitHub</a>
-      <a href="https://example.com" target="_blank">Мой проект</a>
-      <a href="https://open.spotify.com/" target="_blank">Spotify</a>
-    </div>
+        <a href="https://x.com/ArhinDrk" target="_blank" rel="noopener noreferrer">
+          Twitter / X
+        </a>
+
+        <a href="https://dtf.ru/id2870193" target="_blank" rel="noopener noreferrer">
+          DTF
+        </a>
+      </div>
+
+      <h2>Проекты</h2>
+      <div class="links">
+        <a href="https://github.com/ArhinDRC" target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>
+
+        <a href="https://open.spotify.com/playlist/3segHkxwZrY4LY9MrjF6bu?si=shA2J1yRQXiftuHLZvQHAg" target="_blank" rel="noopener noreferrer">
+          Spotify Playlist
+        </a>
+      </div>
+    </section>
   </main>
 </body>
 </html>
