@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Evangelion: 1.0 You Are (Not) Alone</title>
+  <meta name="description" content="Evangelion: 1.0 You Are (Not) Alone movie page">
+
+  <link rel="icon" href="background.png">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      color: white;
+      background-image:
+        linear-gradient(
+          rgba(0, 0, 0, 0.55),
+          rgba(0, 0, 0, 0.85)
+        ),
+        url("background.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.10), transparent 28%),
+        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.08), transparent 34%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .petals {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .petal {
+      position: absolute;
+      top: -10%;
+      width: 10px;
+      height: 16px;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 100% 0 100% 0;
+      filter: blur(0.3px);
+      opacity: 0.8;
+      animation-name: fall;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    .petal:nth-child(1) { left: 5%; animation-duration: 12s; animation-delay: 0s; }
+    .petal:nth-child(2) { left: 12%; animation-duration: 15s; animation-delay: 2s; }
+    .petal:nth-child(3) { left: 20%; animation-duration: 10s; animation-delay: 4s; }
+    .petal:nth-child(4) { left: 28%; animation-duration: 17s; animation-delay: 1s; }
+    .petal:nth-child(5) { left: 35%; animation-duration: 13s; animation-delay: 3s; }
+    .petal:nth-child(6) { left: 42%; animation-duration: 16s; animation-delay: 6s; }
+    .petal:nth-child(7) { left: 50%; animation-duration: 11s; animation-delay: 1.5s; }
+    .petal:nth-child(8) { left: 58%; animation-duration: 18s; animation-delay: 5s; }
+    .petal:nth-child(9) { left: 66%; animation-duration: 14s; animation-delay: 2.5s; }
+    .petal:nth-child(10) { left: 74%; animation-duration: 12s; animation-delay: 7s; }
+    .petal:nth-child(11) { left: 82%; animation-duration: 19s; animation-delay: 0.5s; }
+    .petal:nth-child(12) { left: 90%; animation-duration: 13s; animation-delay: 4.5s; }
+
+    @keyframes fall {
+      0% {
+        top: -10%;
+        margin-left: 0;
+        opacity: 0;
+        transform: translateX(0) rotate(0deg);
+      }
+
+      10% {
+        opacity: 0.9;
+      }
+
+      50% {
+        margin-left: 70px;
+        transform: translateX(35px) rotate(180deg);
+      }
+
+      100% {
+        top: 110%;
+        margin-left: -70px;
+        opacity: 0;
+        transform: translateX(-35px) rotate(360deg);
+      }
+    }
+
+    .page {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 44px 20px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 22px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      color: white;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      transition: 0.25s ease;
+    }
+
+    .back-link:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.20);
+    }
+
+    .movie-card {
+      padding: 30px;
+      border-radius: 30px;
+      background: rgba(0, 0, 0, 0.58);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(14px);
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .cover {
+      width: 100%;
+      border-radius: 22px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+    }
+
+    .cover img {
+      display: block;
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+    }
+
+    .movie-info h1 {
+      margin: 0 0 12px;
+      font-size: 38px;
+      line-height: 1.15;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .meta span {
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: #eeeeee;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .description {
+      margin: 0;
+      color: #dddddd;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .imdb-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 13px 18px;
+      border-radius: 16px;
+      color: white;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      transition: 0.25s ease;
+    }
+
+    .imdb-link:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    h2 {
+      margin: 34px 0 18px;
+      font-size: 26px;
+      text-align: center;
+    }
+
+    .screenshots {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .shot {
+      border-radius: 20px;
+      overflow: hidden;
+      min-height: 190px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.38);
+    }
+
+    .shot img {
+      display: block;
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+    }
+
+    .footer {
+      margin-top: 28px;
+      text-align: center;
+      color: #bdbdbd;
+      font-size: 13px;
+    }
+
+    @media (max-width: 800px) {
+      body {
+        background-attachment: scroll;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .cover {
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
+      .movie-info h1 {
+        text-align: center;
+        font-size: 30px;
+      }
+
+      .meta {
+        justify-content: center;
+      }
+
+      .description {
+        text-align: center;
+      }
+
+      .movie-card {
+        padding: 24px 18px;
+      }
+
+      .screenshots {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="petals">
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+  </div>
+
+  <main class="page">
+    <a class="back-link" href="index.html">← Back to main page</a>
+
+    <section class="movie-card">
+      <div class="hero">
+        <div class="cover">
+          <img src="assets/eva1.jpg" alt="Evangelion: 1.0 You Are (Not) Alone cover">
+        </div>
+
+        <div class="movie-info">
+          <h1>Evangelion: 1.0 You Are (Not) Alone</h1>
+
+          <div class="meta">
+            <span>2007</span>
+            <span>Rebuild of Evangelion</span>
+            <span>Movie 01</span>
+            <span>Anime / Mecha / Drama</span>
+          </div>
+
+          <p class="description">
+            The first film in the Rebuild of Evangelion series retells the beginning
+            of Shinji Ikari's story. After arriving in Tokyo-3, Shinji is drawn into
+            the conflict between NERV and the mysterious Angels. The movie keeps the
+            dark atmosphere of Evangelion while rebuilding the story with updated
+            visuals, stronger cinematic pacing, and a colder sense of isolation.
+          </p>
+
+          <a class="imdb-link" href="https://www.imdb.com/title/tt0923811/" target="_blank" rel="noopener noreferrer">
+            Open IMDb Page
+          </a>
+        </div>
+      </div>
+
+      <h2>Movie Screenshots</h2>
+
+      <div class="screenshots">
+        <div class="shot">
+          <img src="assets/eva1-shot1.jpg" alt="Evangelion 1.0 screenshot 1" onerror="this.remove()">
+        </div>
+
+        <div class="shot">
+          <img src="assets/eva1-shot2.jpg" alt="Evangelion 1.0 screenshot 2" onerror="this.remove()">
+        </div>
+
+        <div class="shot">
+          <img src="assets/eva1-shot3.jpg" alt="Evangelion 1.0 screenshot 3" onerror="this.remove()">
+        </div>
+
+        <div class="shot">
+          <img src="assets/eva1-shot4.jpg" alt="Evangelion 1.0 screenshot 4" onerror="this.remove()">
+        </div>
+      </div>
+
+      <p class="footer">
+        made with 🖤 by ArhinD RC
+      </p>
+    </section>
+  </main>
+</body>
+</html>
